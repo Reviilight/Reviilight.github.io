@@ -2,10 +2,12 @@
 import Layout from '../layouts/Layout.astro';
 import About from '../components/home/About.astro';
 import Characters from '../components/home/Characters.astro';
+
+const currentYear = new Date().getFullYear();
 ---
 
 <Layout>
     <About />
 	<Characters />
-    <p>©2025 Vadim "Reviilight" Agababian</p>
+    <center>©{currentYear} Vadim "Reviilight" Agababian</center>
 </Layout>
