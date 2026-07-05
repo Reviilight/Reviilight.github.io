@@ -2,6 +2,61 @@
 const nickname = "Reviilight";
 ---
 
-<center style="background-color: aquamarine;">
-    <h1>{nickname}</h1>
-</center>
+<section class="about-section">
+    <div class="about-section__element about-section__profile">
+        <img
+            class="profile-picture"
+            src="https://avatars.githubusercontent.com/u/55348885"
+            alt="A profile picture"
+        />
+        <h1>{nickname}</h1>
+    </div>
+    <div class="about-section__element about-section__about">
+        <h2>About</h2>
+        <p>I'm a developer.</p>
+    </div>
+    <div class="about-section__element about-section__contacts">
+        <h2>Contacts</h2>
+    </div>
+</section>
+
+<style>
+    .about-section {
+        background-color: aquamarine;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .about-section__element {
+        flex: 1;
+        /*border: 1px solid red; /* uncomment to visualize flexbox items */
+    }
+
+    .about-section__profile {
+    }
+
+    .about-section__about {
+    }
+
+    .about-section__contacts {
+    }
+
+    .profile-picture {
+        border-radius: 100%;
+        height: 8em;
+    }
+
+    @media (min-width: 768px) {
+        .about-section {
+            background-color: aquamarine;
+            display: flex;
+            flex-direction: row;
+            align-items: normal;
+        }
+
+        .about-section__about {
+            order: -1;
+        }
+    }
+</style>
