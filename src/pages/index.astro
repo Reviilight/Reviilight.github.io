@@ -2,12 +2,11 @@
 import Layout from '../layouts/Layout.astro';
 import About from '../components/home/About.astro';
 import Characters from '../components/home/Characters.astro';
-
-const currentYear = new Date().getFullYear();
+import Footer from '../components/Footer.astro'
 ---
 
 <Layout>
     <About />
 	<Characters />
-    <center>©{currentYear} Vadim "Reviilight" Agababian</center>
+    <Footer />
 </Layout>
