@@ -30,6 +30,9 @@ const nickname = "Reviilight";
 
     .about-section__element {
         flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         /*border: 1px solid red; /* uncomment to visualize flexbox items */
     }
 
@@ -49,8 +52,6 @@ const nickname = "Reviilight";
 
     @media (min-width: 768px) {
         .about-section {
-            background-color: aquamarine;
-            display: flex;
             flex-direction: row;
             align-items: normal;
         }
