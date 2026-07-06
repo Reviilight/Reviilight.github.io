@@ -6,7 +6,7 @@ import YouTubeIcon from "@/assets/icons/youtube.png";
 const nickname = "Reviilight";
 ---
 
-<section class="about-section">
+<section class="center-section about-section">
     <div class="about-section__element about-section__profile">
         <img
             class="profile-picture"
@@ -29,10 +29,7 @@ const nickname = "Reviilight";
                 <BskyIcon class="contact__icon" />
                 <span class="contact__text">BlueSky</span>
             </a>
-            <a
-                class="contact"
-                href="https://github.com/Reviilight"
-            >
+            <a class="contact" href="https://github.com/Reviilight">
                 <GitHubIcon class="contact__icon" />
                 <span class="contact__text">GitHub</span>
             </a>
@@ -41,7 +38,11 @@ const nickname = "Reviilight";
                 class="contact"
                 href="https://www.youtube.com/@Reviilight"
             >
-                <Image src={YouTubeIcon} alt="The YouTube icon"  class="contact__icon" />
+                <Image
+                    src={YouTubeIcon}
+                    alt="The YouTube icon"
+                    class="contact__icon"
+                />
                 <span class="contact__text">YouTube</span>
             </a>
             <a
@@ -74,10 +75,8 @@ const nickname = "Reviilight";
 
 <style>
     .about-section {
-        background-color: aquamarine;
         display: flex;
         flex-direction: column;
-        align-items: center;
     }
 
     .about-section__element {
@@ -85,12 +84,16 @@ const nickname = "Reviilight";
         display: flex;
         flex-direction: column;
         align-items: center;
+        padding: 20px;
     }
 
     .about-section__profile {
     }
 
     .about-section__about {
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        border-left: none;
+        border-right: none;
     }
 
     .about-section__contacts {
@@ -113,14 +116,14 @@ const nickname = "Reviilight";
         justify-content: center;
         padding: 12px;
         border-radius: 25%;
-        border: 1px solid white;
-        box-shadow:
-            0px 10px 20px 0px rgba(0, 0, 0, 0.2);
+        /* border: 1px solid white; */
+        box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.2);
         transition:
             box-shadow 0.5s cubic-bezier(0.445, 0.05, 0.55, 0.95),
             filter 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55),
             transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-        background: white;
+        background: rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(20px);
         position: relative;
     }
 
@@ -130,16 +133,17 @@ const nickname = "Reviilight";
         inset: 0;
         z-index: 1;
         border-radius: inherit;
-        transition:
-            box-shadow 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        transition: box-shadow 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
         box-shadow:
             inset 0px 10px 0px 0px rgba(255, 255, 255, 0.671),
+            inset 0px -2px 5px 2px rgb(255, 255, 255),
             inset 0px -8px 10px 0px rgba(0, 195, 255, 0.3);
     }
 
     .contact:hover::after {
         box-shadow:
             inset 0px 25px 0px 0px rgba(255, 255, 255, 0.5),
+            inset 0px 0px 5px 2px rgb(255, 255, 255),
             inset 0px -8px 10px 0px rgba(0, 195, 255, 0.3);
     }
 
@@ -170,6 +174,7 @@ const nickname = "Reviilight";
 
     .profile-picture {
         border-radius: 100%;
+        border: 1px solid rgba(255, 255, 255, 0.5);
         height: 128px;
         box-shadow: 0px 10px 34px -14px rgba(0, 0, 0, 0.36);
     }
@@ -182,6 +187,16 @@ const nickname = "Reviilight";
 
         .about-section__about {
             order: -1;
+        }
+
+        .about-section__profile {
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-top: none;
+            border-bottom: none;
+        }
+
+        .about-section__about {
+            border: none;
         }
     }
 </style>

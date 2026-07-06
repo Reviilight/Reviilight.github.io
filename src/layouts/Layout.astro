@@ -1,6 +1,9 @@
 ---
-import { Image } from "astro:assets";
+import { getImage } from "astro:assets";
+import "@/styles/global.css";
 import Background from "@/assets/backgrounds/nefiya_intro_wp.png";
+
+const optimizedBackground = await getImage({ src: Background });
 ---
 
 <!doctype html>
@@ -13,13 +16,7 @@ import Background from "@/assets/backgrounds/nefiya_intro_wp.png";
 		<meta name="generator" content={Astro.generator} />
 		<title>Reviilight</title>
 	</head>
-	<body>
-		<Image
-			src={Background}
-			alt="A background of a page with a wallpaper featuring waving Nefiya"
-			class="bg-image"
-			loading="eager"
-		/>
+	<body style={`background-image: url('${optimizedBackground.src}');`}>
 		<slot />
 	</body>
 </html>
@@ -33,13 +30,9 @@ import Background from "@/assets/backgrounds/nefiya_intro_wp.png";
 		font-family: sans-serif;
 	}
 
-	.bg-image {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-		z-index: -1;
+	body {
+		background-size: cover;
+		background-position: center;
+		background-attachment: fixed;
 	}
 </style>

@@ -1,12 +1,33 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import About from '../components/home/About.astro';
-import Characters from '../components/home/Characters.astro';
-import Footer from '../components/Footer.astro'
+import Layout from "../layouts/Layout.astro";
+import About from "../components/home/About.astro";
+import Characters from "../components/home/Characters.astro";
+import Footer from "../components/Footer.astro";
 ---
 
 <Layout>
-    <About />
-	<Characters />
+    <main class="main-page">
+        <div></div>
+        <About />
+        <Characters />
+        <Characters />
+        <Characters />
+        <Characters />
+        <div></div>
+    </main>
     <Footer />
 </Layout>
+
+<style>
+    .main-page {
+        display: grid;
+        gap: 16px;
+    }
+
+    @media (min-width: 768px) {
+    .main-page {
+        max-width: 1000px;
+        margin-inline: auto;
+    }
+}
+</style>
