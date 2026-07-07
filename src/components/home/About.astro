@@ -122,8 +122,8 @@ const nickname = "Reviilight";
             box-shadow 0.5s cubic-bezier(0.445, 0.05, 0.55, 0.95),
             filter 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55),
             transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-        background: rgba(255, 255, 255, 0.5);
-        backdrop-filter: blur(20px);
+        background: rgb(234, 242, 245);
+        /* backdrop-filter: blur(20px); */
         position: relative;
     }
 
@@ -135,21 +135,21 @@ const nickname = "Reviilight";
         border-radius: inherit;
         transition: box-shadow 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
         box-shadow:
-            inset 0px 10px 0px 0px rgba(255, 255, 255, 0.671),
+            inset 0px 10px 0px 0px rgba(255, 255, 255, 0.6),
             inset 0px -2px 5px 2px rgb(255, 255, 255),
             inset 0px -8px 10px 0px rgba(0, 195, 255, 0.3);
     }
 
     .contact:hover::after {
         box-shadow:
-            inset 0px 25px 0px 0px rgba(255, 255, 255, 0.5),
+            inset 0px 25px 0px 0px rgba(255, 255, 255, 0.6),
             inset 0px 0px 5px 2px rgb(255, 255, 255),
             inset 0px -8px 10px 0px rgba(0, 195, 255, 0.3);
     }
 
     .contact:hover {
         transform: scale(1.1);
-        filter: brightness(1.1);
+        /* filter: brightness(1.1); */
     }
 
     .contact:hover .contact__icon {
