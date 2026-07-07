@@ -1,14 +1,25 @@
+---
+import { Image } from "astro:assets";
+import NefiyaIntro from "@/assets/media/nefiya.png";
+---
+
 <section class="center-section character-section">
     <center>
         <h2>My characters</h2>
         <h3>Nefiya</h3>
-        <img src="/media/nefiya.png" alt="Art of Nefiya" style="width: 20em;" />
+        <Image src={NefiyaIntro} alt="Art of Nefiya" quality={1} class="fit-image" />
         <p>©2025 Vadim "Reviilight" Agababian</p>
     </center>
 </section>
 
 <style>
     .character-section {
-        
+    }
+
+    .fit-image {
+        width: auto;
+        height: auto;
+        max-height: 350px;
+        max-width: 100%;
     }
 </style>
