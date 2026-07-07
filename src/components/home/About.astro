@@ -3,6 +3,9 @@ import { Image } from "astro:assets";
 import BskyIcon from "@/assets/icons/bluesky.svg";
 import GitHubIcon from "@/assets/icons/GitHub_Black.svg";
 import YouTubeIcon from "@/assets/icons/youtube.png";
+import TelegramIcon from "@/assets/icons/telegram.svg";
+import TikTokIcon from "@/assets/icons/TikTok.png";
+import EmailIcon from "@/assets/icons/email.svg";
 const nickname = "Reviilight";
 ---
 
@@ -49,26 +52,30 @@ const nickname = "Reviilight";
             <a
                 style="grid-column: 2;"
                 class="contact"
-                href="https://bsky.app/profile/reviilight.bsky.social"
+                href="https://t.me/vadim_agababyan"
+            > <!-- FIXME: Fix my Telegram handle -->
+                <TelegramIcon class="contact__icon" />
+                <span class="contact__text">Telegram</span>
+            </a>
+            <a
+                style="grid-row: 3;"
+                class="contact"
+                href="https://www.tiktok.com/@reviilight"
             >
-                <BskyIcon class="contact__icon" />
-                <span class="contact__text">Bluesky</span>
+                <Image
+                    src={TikTokIcon}
+                    alt="The TikTok icon"
+                    class="contact__icon"
+                />
+                <span class="contact__text">TikTok</span>
             </a>
             <a
                 style="grid-row: 3;"
                 class="contact"
                 href="https://bsky.app/profile/reviilight.bsky.social"
             >
-                <BskyIcon class="contact__icon" />
-                <span class="contact__text">Bluesky</span>
-            </a>
-            <a
-                style="grid-row: 3;"
-                class="contact"
-                href="https://bsky.app/profile/reviilight.bsky.social"
-            >
-                <BskyIcon class="contact__icon" />
-                <span class="contact__text">Bluesky</span>
+                <EmailIcon class="contact__icon" />
+                <span class="contact__text">email</span>
             </a>
         </div>
     </div>

@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="512"
+   height="512"
+   viewBox="0 0 512 512"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.3 (0d15f75, 2025-12-25)"
+   sodipodi:docname="email.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <title
+     id="title4">email icon</title>
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="true"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:lockguides="false"
+     inkscape:zoom="1.1255704"
+     inkscape:cx="128.82357"
+     inkscape:cy="306.06704"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1">
+    <linearGradient
+       id="linearGradient14"
+       inkscape:collect="always">
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1;"
+         offset="0"
+         id="stop15" />
+      <stop
+         style="stop-color:#ffffff;stop-opacity:0;"
+         offset="1"
+         id="stop17" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient9"
+       inkscape:collect="always">
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1;"
+         offset="0.09537572"
+         id="stop10" />
+      <stop
+         style="stop-color:#ffca3d;stop-opacity:1;"
+         offset="0.10693641"
+         id="stop12" />
+      <stop
+         style="stop-color:#ffd76d;stop-opacity:1;"
+         offset="0.55346823"
+         id="stop1" />
+      <stop
+         style="stop-color:#ffc65d;stop-opacity:1;"
+         offset="0.89234102"
+         id="stop2" />
+      <stop
+         style="stop-color:#ffd47c;stop-opacity:1;"
+         offset="1"
+         id="stop13" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient3"
+       inkscape:collect="always">
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1;"
+         offset="0.33815029"
+         id="stop3" />
+      <stop
+         style="stop-color:#ffd36c;stop-opacity:1;"
+         offset="0.35260117"
+         id="stop14" />
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1;"
+         offset="1"
+         id="stop4" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3"
+       id="linearGradient4"
+       x1="188.27351"
+       y1="-27.519445"
+       x2="323.72644"
+       y2="389.36182"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient9"
+       id="linearGradient11"
+       x1="103.75352"
+       y1="98.344139"
+       x2="408.24646"
+       y2="413.65582"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient14"
+       id="linearGradient16"
+       x1="131.96564"
+       y1="22.72521"
+       x2="380.03439"
+       y2="489.27472"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.96912674,0,0,0.9586003,7.903563,10.598331)" />
+  </defs>
+  <g
+     inkscape:label="Слой 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#ffa000;fill-opacity:1;stroke-width:0"
+       id="rect1"
+       width="512"
+       height="381.81702"
+       x="7.8159701e-14"
+       y="65.091469"
+       ry="58.092407" />
+    <rect
+       style="fill:url(#linearGradient11);stroke-width:0"
+       id="rect2"
+       width="438.33481"
+       height="300.31516"
+       x="36.832577"
+       y="105.84241"
+       ry="25.316654" />
+    <path
+       style="fill:url(#linearGradient4);stroke:none;stroke-width:32;stroke-linejoin:round"
+       d="M 36.832577,105.84241 H 475.16739 l -219.1674,183.0298 z"
+       id="path1"
+       sodipodi:nodetypes="cccc" />
+    <path
+       style="fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#ffa000;stroke-width:39.9194;stroke-linecap:butt;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+       d="M 36.832576,105.84242 255.99999,288.87221 475.1674,105.84242"
+       id="path3"
+       sodipodi:nodetypes="ccc" />
+    <rect
+       style="fill:none;fill-opacity:1;stroke:url(#linearGradient16);stroke-width:15.8071;stroke-dasharray:none"
+       id="rect14"
+       width="496.19287"
+       height="366.00989"
+       x="7.903563"
+       y="72.995033"
+       ry="47.399673"
+       rx="50.064987" />
+  </g>
+  <metadata
+     id="metadata4">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:title>email icon</dc:title>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>Vadim &quot;Reviilight&quot; Agababian</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:date>2026</dc:date>
+        <cc:license
+           rdf:resource="http://creativecommons.org/licenses/by/4.0/" />
+      </cc:Work>
+      <cc:License
+         rdf:about="http://creativecommons.org/licenses/by/4.0/">
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Reproduction" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Distribution" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#Notice" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#Attribution" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#DerivativeWorks" />
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+</svg>
