@@ -1,9 +1,13 @@
 ---
 import { getImage } from "astro:assets";
 import "@/styles/global.css";
-import Background from "@/assets/backgrounds/nefiya_intro_wp.png";
+import BackgroundBack from "@/assets/backgrounds/nefiya_intro_wp_back.png";
+import BackgroundLeft from "@/assets/backgrounds/nefiya_intro_wp_left.png";
+import BackgroundRight from "@/assets/backgrounds/nefiya_intro_wp_right.png";
 
-const optimizedBackground = await getImage({ src: Background });
+const optimizedBackgroundBack = await getImage({ src: BackgroundBack });
+const optimizedBackgroundLeft = await getImage({ src: BackgroundLeft });
+const optimizedBackgroundRight = await getImage({ src: BackgroundRight });
 ---
 
 <!doctype html>
@@ -15,9 +19,14 @@ const optimizedBackground = await getImage({ src: Background });
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Reviilight</title>
-		<meta name="description" content="Reviilight&#039;s personal website" />
+		<meta name="description" content="Reviilight's personal website" />
 	</head>
-	<body style={`background-image: url('${optimizedBackground.src}');`}>
+	<body
+		style={`background-image: 
+			url('${optimizedBackgroundRight.src}'),
+			url('${optimizedBackgroundLeft.src}'),
+			url('${optimizedBackgroundBack.src}');`}
+	>
 		<slot />
 	</body>
 </html>
@@ -32,8 +41,12 @@ const optimizedBackground = await getImage({ src: Background });
 	}
 
 	body {
-		background-size: cover;
-		background-position: center;
+		background-size: contain, cover, cover;
+		background-position:
+			right -90px center,
+			left -440px center,
+			center center;
 		background-attachment: fixed;
+		background-repeat: no-repeat;
 	}
 </style>
