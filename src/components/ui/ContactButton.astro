@@ -1,0 +1,89 @@
+---
+import { Image } from "astro:assets";
+import { contactType, contactIconType } from "@/data/contacts";
+
+const { contact } = Astro.props;
+---
+
+<a class="contact" href={contact.data}>
+    {
+        contact.iconType === contactIconType.svg ? (
+            <contact.icon class="contact__icon" />
+        ) : contact.iconType === contactIconType.png ? (
+            <Image src={contact.icon} alt="" class="contact__icon" />
+        ) : (
+            <span class="contact__icon">{contact.icon}</span>
+        )
+    }
+    <span class="contact__text">{contact.name}</span>
+</a>
+
+<style>
+    .contact {
+        width: 60px; /* FIXME: remove as it is temporal for the grid */
+        text-decoration: none;
+        color: inherit;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 12px;
+        border-radius: 25%;
+        /* border: 1px solid white; */
+        box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.2);
+        transition:
+            box-shadow 0.5s cubic-bezier(0.445, 0.05, 0.55, 0.95),
+            filter 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55),
+            transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        background: rgb(234, 242, 245);
+        /* backdrop-filter: blur(20px); */
+        position: relative;
+    }
+
+    .contact::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        border-radius: inherit;
+        transition: box-shadow 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        box-shadow:
+            inset 0px 10px 0px 0px rgba(255, 255, 255, 0.6),
+            inset 0px -2px 5px 2px rgb(255, 255, 255),
+            inset 0px -8px 10px 0px rgba(0, 195, 255, 0.3);
+    }
+
+    .contact:hover::after {
+        box-shadow:
+            inset 0px 35px 0px -10px rgba(255, 255, 255, 0.6),
+            inset 0px 0px 5px 2px rgb(255, 255, 255),
+            inset 0px -8px 10px 0px rgba(0, 195, 255, 0.3);
+    }
+
+    .contact:hover {
+        transform: scale(1.1);
+        /* filter: brightness(1.1); */
+    }
+
+    .contact:hover .contact__icon {
+        transform: scale(1.1);
+    }
+
+    .contact:hover .contact__text {
+        transform: scale(1.1);
+    }
+
+    .contact__text {
+        transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+
+    .contact__icon {
+        width: 32px;
+        height: auto;
+        display: block;
+        margin: 0px 8px 8px 8px;
+        transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        font-size: 24px;
+        text-align: center;
+    }
+</style>

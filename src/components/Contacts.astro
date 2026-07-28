@@ -1,0 +1,13 @@
+---
+import { contacts, contactType, contactIconType } from "@/data/contacts";
+import ContactButton from "@/components/ui/ContactButton.astro";
+
+const { itemAmount } = Astro.props;
+---
+
+<ContactButton contact={contacts[0]} />
+<ContactButton contact={contacts[1]} />
+<ContactButton contact={contacts[2]} />
+<ContactButton contact={contacts[3]} />
+<ContactButton contact={contacts[4]} />
+<ContactButton contact={contacts[5]} />
