@@ -2,7 +2,7 @@
 import { contacts, contactType, contactIconType } from "@/data/contacts";
 import ContactButton from "@/components/ui/ContactButton.astro";
 
-const { itemAmount } = Astro.props;
+const { itemAmount = Infinity, showSorting = true } = Astro.props;
 ---
 
 {

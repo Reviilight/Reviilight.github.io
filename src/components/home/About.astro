@@ -1,12 +1,7 @@
 ---
 import { Image } from "astro:assets";
-import BskyIcon from "@/assets/icons/bluesky.svg";
-import GitHubIcon from "@/assets/icons/github_black.svg";
-import YouTubeIcon from "@/assets/icons/youtube.png";
-import TelegramIcon from "@/assets/icons/telegram.svg";
-import TikTokIcon from "@/assets/icons/tiktok.png";
-import EmailIcon from "@/assets/icons/email.svg";
 import Contacts from "@/components/Contacts.astro";
+import ModalWindow from "@/components/ui/ModalWindow.astro";
 const nickname = "Reviilight";
 ---
 
@@ -20,6 +15,13 @@ const nickname = "Reviilight";
         <h1>{nickname}</h1>
         <b>Vadim Agababian</b>
         <p><b>Status: </b><span>unemployed</span></p>
+        <ModalWindow text="open me ;3">
+            <ModalWindow text="heyo 0v0">
+                <ModalWindow text="heehee ^u^">
+                    <span>okay, I'm tired... :&lt;</span>
+                </ModalWindow>
+            </ModalWindow>
+        </ModalWindow>
     </div>
     <div class="about-section__element about-section__about">
         <h2>About</h2>
@@ -27,9 +29,14 @@ const nickname = "Reviilight";
     </div>
     <div class="about-section__element about-section__contacts">
         <h2>Contacts</h2>
-        <div class="contacts-grid">
-            <Contacts itemAmount=6 showSorting=false />
+        <div class="contacts-grid contacts-grid-mini">
+            <Contacts itemAmount={6} showSorting="false" />
         </div>
+        <ModalWindow text="Show All" title="Socials">
+            <div class="contacts-grid">
+                <Contacts />
+            </div>
+        </ModalWindow>
     </div>
 </section>
 
@@ -60,11 +67,26 @@ const nickname = "Reviilight";
     }
 
     .contacts-grid {
-        margin-bottom: 15px;
+        max-width: 79vw;
         display: grid;
-        grid-auto-flow: row;
         gap: 8px;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+        max-height: 60vh;
+        overflow-y: auto;
+        padding: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.95);
+        border-radius: 16px;
+    }
+
+    .contacts-grid-mini {
+        margin-bottom: 15px;
+        max-width: 100%;
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+        max-height: none;
+        overflow-y: visible;
+        padding: 0px;
+        border: none;
+        border-radius: 0;
     }
 
     .profile-picture {

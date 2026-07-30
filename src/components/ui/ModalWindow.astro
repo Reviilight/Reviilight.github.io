@@ -1,0 +1,111 @@
+---
+const { text = "...", title = "" } = Astro.props;
+---
+
+<div data-modal-window-component>
+    <button data-modal-window-button>{text}</button>
+    <dialog class="modal-window" data-modal-window>
+        <button class="modal-window__close-button" data-close-button>×</button>
+        <h2 class="modal-window__title">&ZeroWidthSpace;{title}</h2>
+        <slot />
+    </dialog>
+</div>
+
+<script>
+    document
+        .querySelectorAll("[data-modal-window-component]")
+        .forEach((element) => {
+            const modalWindowButton = element.querySelector(
+                "[data-modal-window-button]",
+            );
+            const modalWindow = element.querySelector(
+                "[data-modal-window]",
+            ) as HTMLDialogElement;
+
+            modalWindowButton?.addEventListener("click", () => {
+                modalWindow.showModal();
+            });
+
+            const closeButton = element.querySelector("[data-close-button]");
+
+            closeButton?.addEventListener("click", () => {
+                modalWindow.close();
+            });
+        });
+</script>
+
+<style>
+    .modal-window {
+        /* width: 85%; */
+        max-width: 900px;
+        padding: 20px;
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.95);
+        border-left: none;
+        border-right: none;
+        background-color: rgba(255, 255, 255, 0.95);
+        box-shadow: 0px 10px 34px -14px rgba(0, 0, 0, 0.36);
+        transition:
+            transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55),
+            opacity 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55),
+            display 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55) allow-discrete;
+        transform: scale(0.7);
+        opacity: 0;
+    }
+
+    .modal-window[open] {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    @starting-style {
+        .modal-window[open] {
+            transform: scale(0.7);
+            opacity: 0;
+        }
+
+        .modal-window[open]::backdrop {
+            opacity: 0;
+        }
+    }
+
+    .modal-window::backdrop {
+        transition:
+            opacity 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55),
+            display 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55) allow-discrete;
+        backdrop-filter: blur(8px);
+        opacity: 1;
+    }
+
+    /*  Why it works in the code above, but not here?!
+        I'll just make "opacity: 1;" in the main rule...
+        .modal-window[open]::backdrop {
+        opacity: 1;
+    } */
+
+    .modal-window__close-button {
+        font-size: 32px;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        border-radius: 50%;
+    }
+
+    .modal-window__close-button:hover {
+        background: linear-gradient(
+            -20deg,
+            rgb(245, 200, 200) 0%,
+            rgb(255, 240, 240) 100%
+        );
+    }
+
+    .modal-window__title {
+        margin-top: 0px;
+        text-align: center;
+    }
+</style>
