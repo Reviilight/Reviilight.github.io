@@ -5,30 +5,72 @@ import { contactType, contactIconType } from "@/data/contacts";
 const { contact } = Astro.props;
 ---
 
-<a class="contact" href={contact.data}>
+<div data-contact>
     {
-        contact.iconType === contactIconType.svg ? (
-            <contact.icon class="contact__icon" />
-        ) : contact.iconType === contactIconType.png ? (
-            <Image src={contact.icon} alt="" class="contact__icon" />
+        contact.type === contactType.link ? (
+            <a class="contact" href={contact.data}>
+                {contact.iconType === contactIconType.svg ? (
+                    <contact.icon class="contact__icon" />
+                ) : contact.iconType === contactIconType.png ? (
+                    <Image src={contact.icon} alt="" class="contact__icon" />
+                ) : (
+                    <span class="contact__icon">{contact.icon}</span>
+                )}
+                <span class="contact__text">{contact.name}</span>
+            </a>
         ) : (
-            <span class="contact__icon">{contact.icon}</span>
+            <button class="contact" data-contact-button>
+                {contact.iconType === contactIconType.svg ? (
+                    <contact.icon class="contact__icon" />
+                ) : contact.iconType === contactIconType.png ? (
+                    <Image src={contact.icon} alt="" class="contact__icon" />
+                ) : (
+                    <span class="contact__icon">{contact.icon}</span>
+                )}
+                <span class="contact__text">{contact.name}</span>
+                <span class="contact__username" data-contact-username>
+                    {contact.data}
+                </span>
+            </button>
         )
     }
-    <span class="contact__text">{contact.name}</span>
-</a>
+</div>
+
+<script>
+    document.querySelectorAll("[data-contact]").forEach((element) => {
+        const contactButton = element.querySelector(
+            "[data-contact-button]",
+        ) as HTMLButtonElement;
+        const contactUsername = element.querySelector(
+            "[data-contact-username]",
+        ) as HTMLSpanElement;
+
+        if (contactUsername !== null) {
+            const textForClipboard = contactUsername.innerText;
+
+            contactButton?.addEventListener("click", () => {
+                navigator.clipboard
+                    .writeText(textForClipboard)
+                    .then(() => alert("Copied to Clipboard"))
+                    .catch((err) =>
+                        console.error("Failed to copy to the clipboard: ", err),
+                    );
+            });
+        }
+    });
+</script>
 
 <style>
     .contact {
-        width: 60px;
-        height: 58px;
+        width: 84px;
+        height: 82px;
         text-decoration: none;
         color: inherit;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        padding: 12px;
+        /* padding: 12px; */ /* Doesn't work for buttons with fixed size */
         border-radius: 22px;
         /* border: 1px solid white; */
         box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.2);
@@ -39,6 +81,7 @@ const { contact } = Astro.props;
         background: rgb(234, 242, 245);
         /* backdrop-filter: blur(20px); */
         position: relative;
+        user-select: none;
     }
 
     .contact::after {
@@ -74,8 +117,16 @@ const { contact } = Astro.props;
         transform: scale(1.1);
     }
 
+    .contact:active {
+        transform: scale(0.8);
+    }
+
     .contact__text {
         transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+
+    .contact__username {
+        font-size: 11px;
     }
 
     .contact__icon {

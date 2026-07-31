@@ -4,6 +4,7 @@ import YouTubeIcon from "@/assets/icons/youtube.png";
 import TelegramIcon from "@/assets/icons/telegram.svg";
 import TikTokIcon from "@/assets/icons/tiktok.png";
 import EmailIcon from "@/assets/icons/email.svg";
+import DiscordIcon from "@/assets/icons/discord.svg";
 
 export const contactType = {
     link: "link",
@@ -24,7 +25,7 @@ export const contacts = [
         data: "https://bsky.app/profile/reviilight.bsky.social",
         icon: BskyIcon,
         iconType: contactIconType.svg,
-        priority: 5,
+        priority: 100,
     },
     {
         type: contactType.link,
@@ -32,7 +33,7 @@ export const contacts = [
         data: "https://github.com/Reviilight",
         icon: GitHubIcon,
         iconType: contactIconType.svg,
-        priority: 4,
+        priority: 50,
     },
     {
         type: contactType.link,
@@ -40,7 +41,7 @@ export const contacts = [
         data: "https://www.youtube.com/@Reviilight",
         icon: YouTubeIcon,
         iconType: contactIconType.png,
-        priority: 3,
+        priority: 40,
     },
     {
         type: contactType.link,
@@ -48,7 +49,7 @@ export const contacts = [
         data: "https://t.me/vadim_agababian",
         icon: TelegramIcon,
         iconType: contactIconType.svg,
-        priority: 2,
+        priority: 30,
     },
     {
         type: contactType.link,
@@ -56,7 +57,7 @@ export const contacts = [
         data: "https://www.tiktok.com/@reviilight",
         icon: TikTokIcon,
         iconType: contactIconType.png,
-        priority: 1,
+        priority: 20,
     },
     {
         type: contactType.link,
@@ -64,6 +65,14 @@ export const contacts = [
         data: "mailto:edwardfilm3@gmail.com",
         icon: "✉",
         iconType: contactIconType.symbol,
-        priority: 0,
+        priority: 10,
+    },
+    {
+        type: contactType.code,
+        name: "Discord",
+        data: "@reviilight",
+        icon: DiscordIcon,
+        iconType: contactIconType.png,
+        priority: 9,
     },
 ];
