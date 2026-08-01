@@ -1,6 +1,8 @@
 ---
 import { Image } from "astro:assets";
 import { contactType, contactIconType } from "@/data/contacts";
+import CopyIcon from "@/assets/icons/copy.svg";
+import ExternalLinkIcon from "@/assets/icons/external_link.svg";
 
 const { contact } = Astro.props;
 ---
@@ -9,6 +11,7 @@ const { contact } = Astro.props;
     {
         contact.type === contactType.link ? (
             <a class="contact" href={contact.data}>
+                <ExternalLinkIcon class="contact__action-icon" />
                 {contact.iconType === contactIconType.svg ? (
                     <contact.icon class="contact__icon" />
                 ) : contact.iconType === contactIconType.png ? (
@@ -20,6 +23,7 @@ const { contact } = Astro.props;
             </a>
         ) : (
             <button class="contact" data-contact-button>
+                <CopyIcon class="contact__action-icon" />
                 {contact.iconType === contactIconType.svg ? (
                     <contact.icon class="contact__icon" />
                 ) : contact.iconType === contactIconType.png ? (
@@ -138,5 +142,13 @@ const { contact } = Astro.props;
         transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
         font-size: 24px;
         text-align: center;
+    }
+    
+    .contact__action-icon {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 12px;
+        height: auto;
     }
 </style>
