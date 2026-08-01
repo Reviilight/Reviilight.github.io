@@ -3,7 +3,7 @@ import GitHubIcon from "@/assets/icons/platforms/github_black.svg";
 import YouTubeIcon from "@/assets/icons/platforms/youtube.png";
 import TelegramIcon from "@/assets/icons/platforms/telegram.svg";
 import TikTokIcon from "@/assets/icons/platforms/tiktok.png";
-import EmailIcon from "@/assets/icons/email.svg";
+import EmailIcon from "@/assets/icons/email.png";
 import DiscordIcon from "@/assets/icons/platforms/discord.svg";
 
 export const contactType = {
@@ -64,7 +64,7 @@ export const contacts = [
         name: "email",
         data: "mailto:edwardfilm3@gmail.com",
         icon: EmailIcon,
-        iconType: contactIconType.svg,
+        iconType: contactIconType.png,
         priority: 10,
     },
     {
