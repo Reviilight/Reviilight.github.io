@@ -1,10 +1,10 @@
-import BskyIcon from "@/assets/icons/bluesky.svg";
-import GitHubIcon from "@/assets/icons/github_black.svg";
-import YouTubeIcon from "@/assets/icons/youtube.png";
-import TelegramIcon from "@/assets/icons/telegram.svg";
-import TikTokIcon from "@/assets/icons/tiktok.png";
+import BskyIcon from "@/assets/icons/platforms/bluesky.svg";
+import GitHubIcon from "@/assets/icons/platforms/github_black.svg";
+import YouTubeIcon from "@/assets/icons/platforms/youtube.png";
+import TelegramIcon from "@/assets/icons/platforms/telegram.svg";
+import TikTokIcon from "@/assets/icons/platforms/tiktok.png";
 import EmailIcon from "@/assets/icons/email.svg";
-import DiscordIcon from "@/assets/icons/discord.svg";
+import DiscordIcon from "@/assets/icons/platforms/discord.svg";
 
 export const contactType = {
     link: "link",
@@ -63,8 +63,8 @@ export const contacts = [
         type: contactType.link,
         name: "email",
         data: "mailto:edwardfilm3@gmail.com",
-        icon: "✉",
-        iconType: contactIconType.symbol,
+        icon: EmailIcon,
+        iconType: contactIconType.svg,
         priority: 10,
     },
     {
