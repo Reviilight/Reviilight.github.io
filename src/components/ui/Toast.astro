@@ -1,0 +1,86 @@
+---
+import { Image } from "astro:assets";
+import Kaindii from "@/assets/media/kaindii_wink.gif";
+---
+
+<div class="toast" data-toast>
+    <Image src={Kaindii} alt="Kaindii" class="toast__kaindii" />
+    <div class="toast__message">
+        <span data-toast-message>Toast message</span>
+    </div>
+</div>
+
+<script>
+    const toast = document.querySelector("[data-toast]");
+    const toastMessage = toast?.querySelector(
+        "[data-toast-message]",
+    ) as HTMLSpanElement;
+
+    document.addEventListener("show-toast", (event) => {
+        const customEvent = event as CustomEvent;
+        let duration = 3000;
+        if (customEvent.detail?.duration) {
+            duration = customEvent.detail.duration as number;
+        }
+        
+        toast?.classList.remove("show");
+
+        if (customEvent.detail?.message) {
+            toastMessage.innerHTML = customEvent.detail.message;
+        } else {
+            console.error("No message was set to the toast.");
+            return;
+        }
+
+        toast?.classList.add("show");
+
+        setTimeout(() => {
+            toast?.classList.remove("show");
+        }, duration);
+    });
+</script>
+
+<style>
+    .toast {
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        width: 100%;
+        bottom: 30px;
+        transform: translateY(100px);
+        visibility: hidden;
+        transition:
+            transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+            visibility 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .toast.show {
+        transform: translateY(0px);
+        visibility: visible;
+    }
+
+    .toast__message {
+        max-width: 900px;
+        padding: 12px 16px;
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.95);
+        border-left: none;
+        border-right: none;
+        background-color: rgba(255, 255, 255, 0.95);
+        box-shadow: 0px 10px 34px 8px rgba(0, 0, 0, 0.36);
+        transition:
+            transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55),
+            opacity 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55),
+            display 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55) allow-discrete;
+    }
+
+    .toast__kaindii {
+        margin: 8px;
+        width: 42px;
+        height: auto;
+        image-rendering: pixelated;
+        box-shadow: 0px 10px 34px 8px rgba(0, 0, 0, 0.36);
+    }
+</style>

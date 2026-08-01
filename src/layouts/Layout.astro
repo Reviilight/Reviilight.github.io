@@ -1,6 +1,7 @@
 ---
 import { getImage } from "astro:assets";
 import "@/styles/global.css";
+import Toast from "@/components/ui/Toast.astro";
 import BackgroundBack from "@/assets/backgrounds/nefiya_intro_wp_back.png";
 import BackgroundLeft from "@/assets/backgrounds/nefiya_intro_wp_left.png";
 import BackgroundRight from "@/assets/backgrounds/nefiya_intro_wp_right.png";
@@ -28,6 +29,7 @@ const optimizedBackgroundRight = await getImage({ src: BackgroundRight });
 			url('${optimizedBackgroundBack.src}');`}
 	>
 		<slot />
+		<Toast />
 	</body>
 </html>
 
