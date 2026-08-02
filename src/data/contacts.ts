@@ -5,6 +5,8 @@ import TelegramIcon from "@/assets/icons/platforms/telegram.svg";
 import TikTokIcon from "@/assets/icons/platforms/tiktok.png";
 import EmailIcon from "@/assets/icons/email.png";
 import DiscordIcon from "@/assets/icons/platforms/discord.svg";
+import PinterestIcon from "@/assets/icons/platforms/pinterest.png";
+import InstagramIcon from "@/assets/icons/platforms/instagram.png";
 
 export const contactType = {
     link: "link",
@@ -75,4 +77,20 @@ export const contacts = [
         iconType: contactIconType.png,
         priority: 9,
     },
+    {
+        type: contactType.link,
+        name: "Pinterest",
+        data: "https://pinterest.com/Reviilight",
+        icon: PinterestIcon,
+        iconType: contactIconType.png,
+        priority: 8,
+    },
+    // {
+    //     type: contactType.link,
+    //     name: "Instagram",
+    //     data: "",
+    //     icon: InstagramIcon,
+    //     iconType: contactIconType.png,
+    //     priority: 8,
+    // },
 ];
