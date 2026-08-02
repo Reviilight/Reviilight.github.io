@@ -22,7 +22,7 @@ import Kaindii from "@/assets/media/kaindii_wink.gif";
         if (customEvent.detail?.duration) {
             duration = customEvent.detail.duration as number;
         }
-        
+        // TODO: make multiple toast messages appear
         toast?.classList.remove("show");
 
         if (customEvent.detail?.message) {
@@ -42,7 +42,7 @@ import Kaindii from "@/assets/media/kaindii_wink.gif";
 
 <style>
     .toast {
-        z-index: 10;
+        z-index: 100;
         display: flex;
         align-items: center;
         justify-content: center;

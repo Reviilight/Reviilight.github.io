@@ -4,10 +4,14 @@ const { text = "...", title = "" } = Astro.props;
 
 <div data-modal-window-component>
     <button data-modal-window-button>{text}</button>
-    <dialog class="modal-window" data-modal-window>
-        <button class="modal-window__close-button" data-close-button>×</button>
-        <h2 class="modal-window__title">&ZeroWidthSpace;{title}</h2>
-        <slot />
+    <dialog class="modal-window-wrapper" data-modal-dialog>
+        <div class="modal-window" data-modal-window>
+            <button class="modal-window__close-button" data-close-button>
+                ×
+            </button>
+            <h2 class="modal-window__title">&ZeroWidthSpace;{title}</h2>
+            <slot />
+        </div>
     </dialog>
 </div>
 
@@ -18,24 +22,83 @@ const { text = "...", title = "" } = Astro.props;
             const modalWindowButton = element.querySelector(
                 "[data-modal-window-button]",
             );
+            const modalDialog = element.querySelector(
+                "[data-modal-dialog]",
+            ) as HTMLDialogElement;
             const modalWindow = element.querySelector(
                 "[data-modal-window]",
             ) as HTMLDialogElement;
 
             modalWindowButton?.addEventListener("click", () => {
-                modalWindow.showModal();
+                modalDialog.show();
             });
 
             const closeButton = element.querySelector("[data-close-button]");
 
             closeButton?.addEventListener("click", () => {
-                modalWindow.close();
+                modalDialog.close();
             });
+
+            modalDialog?.addEventListener("click", (event) => {
+                if (!modalWindow.contains(event.target as Node)) {
+                    modalDialog.close();
+                }
+            });
+
+            // Attach the dialog to the body, so that sequential dialogs
+            // have the full size of the body.
+            document.body.appendChild(modalDialog);
         });
 </script>
 
 <style>
+    .modal-window-wrapper {
+        width: 100%;
+        height: 100%;
+        padding: 0px;
+        align-content: center;
+        border: none;
+        background: none;
+        transition:
+            opacity 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55),
+            backdrop-filter 0.3s cubic-bezier(0.165, 0.84, 0.44, 1),
+            background-color 0.3s cubic-bezier(0.47, 0, 0.745, 0.715),
+            display 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55) allow-discrete;
+        opacity: 0;
+        z-index: 10;
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        margin: 0%;
+        backdrop-filter: blur(0px);
+        background-color: rgba(0, 0, 0, 0);
+    }
+
+    .modal-window-wrapper[open] {
+        opacity: 1;
+        backdrop-filter: blur(8px);
+        background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    .modal-window-wrapper[open] .modal-window {
+        transform: scale(1);
+    }
+
+    @starting-style {
+        .modal-window-wrapper[open] {
+            opacity: 0;
+            backdrop-filter: blur(0px);
+            background-color: rgba(0, 0, 0, 0);
+        }
+        .modal-window-wrapper[open] .modal-window {
+            transform: scale(0.7);
+        }
+    }
+
     .modal-window {
+        position: relative;
+        margin-inline: auto;
+        width: fit-content;
         /* width: 85%; */
         max-width: 900px;
         padding: 20px;
@@ -48,40 +111,11 @@ const { text = "...", title = "" } = Astro.props;
         transition:
             transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55),
             opacity 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55),
+            backdrop-filter 0.5s cubic-bezier(0.165, 0.84, 0.44, 1),
+            background-color 0.5s cubic-bezier(0.47, 0, 0.745, 0.715),
             display 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55) allow-discrete;
         transform: scale(0.7);
-        opacity: 0;
     }
-
-    .modal-window[open] {
-        transform: scale(1);
-        opacity: 1;
-    }
-
-    @starting-style {
-        .modal-window[open] {
-            transform: scale(0.7);
-            opacity: 0;
-        }
-
-        .modal-window[open]::backdrop {
-            opacity: 0;
-        }
-    }
-
-    .modal-window::backdrop {
-        transition:
-            opacity 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55),
-            display 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55) allow-discrete;
-        backdrop-filter: blur(8px);
-        opacity: 1;
-    }
-
-    /*  Why it works in the code above, but not here?!
-        I'll just make "opacity: 1;" in the main rule...
-        .modal-window[open]::backdrop {
-        opacity: 1;
-    } */
 
     .modal-window__close-button {
         font-size: 32px;
